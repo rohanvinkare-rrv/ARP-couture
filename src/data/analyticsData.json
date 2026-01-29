@@ -1,0 +1,41 @@
+{
+    "traffic": {
+        "footfall": "1.2k",
+        "conversion": "3.8%"
+    },
+    "inventory": {
+        "health": "92%",
+        "status": "Optimal Levels",
+        "breakdown": [
+            {
+                "label": "Healthy",
+                "value": "70%",
+                "context": "Core Basics",
+                "color": "bg-lime-green"
+            },
+            {
+                "label": "Risk",
+                "value": "20%",
+                "context": "Outerwear",
+                "color": "bg-deep-orange"
+            },
+            {
+                "label": "Slow",
+                "value": "10%",
+                "context": "Accessories",
+                "color": "bg-electric-red"
+            }
+        ],
+        "metrics": {
+            "str": "68%", 
+            "wos": "5.2 Wks"
+        }
+    },
+    "rank": {
+        "position": "#04",
+        "context": "Top 10 District"
+    },
+    "system": {
+        "insight": "Implementing all 3 pending alerts can protect $4,800 in weekly margin."
+    }
+}

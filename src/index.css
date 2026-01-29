@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Primitive Colors (Base Palette) */
+  --color-charcoal-base: #050505;
+  --color-slate-panel: #0f0f12;
+  --color-slate-card: #16161a;
+
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+
+  --color-electric-red: #ff3b30;
+  --color-lime-green: #32d74b;
+  --color-deep-orange: #ff9f0a;
+
+  /* Semantic Tokens */
+  /* Backgrounds */
+  --color-bg-app: var(--color-zinc-50);
+  --color-bg-panel: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-hover: var(--color-zinc-100);
+  --color-bg-active: var(--color-zinc-900);
+  --color-bg-subtle: var(--color-zinc-100);
+
+  /* Text */
+  --color-text-primary: var(--color-zinc-900);
+  --color-text-secondary: var(--color-zinc-500);
+  --color-text-tertiary: var(--color-zinc-400);
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border-base: var(--color-zinc-200);
+  --color-border-subtle: var(--color-zinc-100);
+
+  /* Status */
+  --color-status-success: var(--color-lime-green);
+  --color-status-warning: var(--color-deep-orange);
+  --color-status-error: var(--color-electric-red);
+
+  /* Fonts */
+  --font-sans: Inter, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-app text-text-primary font-sans antialiased overflow-hidden h-screen;
+  }
+}
+
+/* Dark Mode Overrides */
+/* Note: Tailwind v4 handles dark mode via the @variant, but for CSS variables we can use standard media/selector checks if needed, 
+   OR since we are using --color-*, we can redefine these variables in a .dark scope if we want purely CSS var switching, 
+   BUT Tailwind v4 recommends using utility classes like `dark:bg-slate-panel`. 
+   However, allow me to try a hybrid approach to make "Semantic" work: 
+   Real Semantic Theming usually swaps the variable values. 
+   
+   Let's check if I can do:
+   :root { --color-bg-app: ... } 
+   .dark { --color-bg-app: ... }
+   
+   And then just use `bg-bg-app` in markup. This is the POWER of centralized theming.
+   
+   If I do this, I can remove `dark:` classes from components!
+*/
+
+@layer base {
+  :root {
+    --bg-app: var(--color-zinc-50);
+    --bg-panel: #ffffff;
+    --bg-card: #ffffff;
+    --bg-hover: rgba(0, 0, 0, 0.05);
+    /* Black/5 */
+    --bg-active: var(--color-zinc-900);
+    --bg-subtle: var(--color-zinc-100);
+
+    --text-primary: var(--color-zinc-900);
+    --text-secondary: var(--color-zinc-500);
+    --text-tertiary: var(--color-zinc-400);
+    --text-inverse: #ffffff;
+
+    --border-base: var(--color-zinc-200);
+    --border-subtle: var(--color-zinc-100);
+  }
+
+  .dark {
+    --bg-app: var(--color-charcoal-base);
+    --bg-panel: var(--color-slate-panel);
+    --bg-card: var(--color-slate-card);
+    --bg-hover: rgba(255, 255, 255, 0.05);
+    /* White/5 */
+    --bg-active: rgba(255, 255, 255, 0.1);
+    /* White/10 */
+    --bg-subtle: rgba(255, 255, 255, 0.05);
+
+    --text-primary: #ffffff;
+    --text-secondary: var(--color-zinc-400);
+    /* Improved visibility (was zinc-400) */
+    --text-tertiary: var(--color-zinc-500);
+    /* Improved visibility (was zinc-600) */
+    --text-inverse: #000000;
+
+    --border-base: rgba(255, 255, 255, 0.1);
+    /* White/10 */
+    --border-subtle: rgba(255, 255, 255, 0.05);
+  }
+}
+
+@theme {
+  /* Re-defining to map to the CSS Variables defined in :root/.dark */
+  --color-bg-app: var(--bg-app);
+  --color-bg-panel: var(--bg-panel);
+  --color-bg-card: var(--bg-card);
+  --color-bg-hover: var(--bg-hover);
+  --color-bg-active: var(--bg-active);
+  --color-bg-subtle: var(--bg-subtle);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-inverse: var(--text-inverse);
+
+  --color-border-base: var(--border-base);
+  --color-border-subtle: var(--border-subtle);
+}
+
+@layer components {
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-hover transition-all cursor-pointer;
+  }
+
+  /* Note: Active state needs explicit overrides usually IF the bg-active color implies a text color change that isn't automatic. */
+  .sidebar-item.active {
+    @apply bg-bg-active text-text-inverse font-medium;
+    /* In light: bg-zinc-900 text-white. In dark: bg-white/10 text-white. 
+       Wait, my variable --text-inverse is strictly black/white flip.
+       Light: bg-black -> text-white (Correct)
+       Dark: bg-white/10 -> text-white... but --text-inverse in dark is BLACK. 
+       So I might need a specific --text-on-active or just override for this specific case.
+       Let's keep it simple: The sidebar active in dark mode is white text on slightly lighter bg.
+       I will handle this specific "Text on Active" case. 
+    */
+    color: white;
+    /* Force white text for active state in both modes often works well for dark buttons */
+  }
+
+  .dark .sidebar-item.active {
+    color: white;
+  }
+
+  .glass-card {
+    @apply bg-bg-card border border-border-base rounded-md relative overflow-hidden shadow-sm transition-colors duration-300;
+    /* Glass effect gradient can also be variable if needed */
+    background-image: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  }
+
+  .tab-btn {
+    @apply px-3 py-1 text-[10px] font-bold uppercase tracking-wider border-b-2 border-transparent text-text-tertiary hover:text-text-secondary transition-all;
+  }
+
+  .tab-btn.active {
+    @apply border-text-primary text-text-primary;
+  }
+
+  .kpi-pill {
+    @apply flex flex-col px-4 py-2 border-r border-border-base last:border-0;
+  }
+
+  .data-grid {
+    @apply grid grid-cols-12 gap-1 h-full;
+  }
+
+  .compact-table tr {
+    @apply border-b border-border-subtle;
+  }
+
+  .compact-table td {
+    @apply py-2 px-3;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  /* Could make this semantic too --color-scroll-thumb */
+  border-radius: 10px;
+}

@@ -1,0 +1,69 @@
+{
+    "topItems": [
+        {
+            "id": "9921",
+            "name": "Running Shoe V2",
+            "revenue": "$42.5k",
+            "trend": "↑ 12%",
+            "trendColor": "green"
+        },
+        {
+            "id": "1029",
+            "name": "Training Tee Pro",
+            "revenue": "$28.1k",
+            "trend": "↑ 4%",
+            "trendColor": "green"
+        },
+        {
+            "id": "5542",
+            "name": "Compression Sock",
+            "revenue": "$12.4k",
+            "trend": "↓ 3%",
+            "trendColor": "red"
+        },
+        {
+            "id": "8821",
+            "name": "Water Bottle 1L",
+            "revenue": "$8.2k",
+            "trend": "--",
+            "trendColor": "neutral"
+        },
+        {
+            "id": "7732",
+            "name": "Yoga Mat Plus",
+            "revenue": "$5.4k",
+            "trend": "↑ 8%",
+            "trendColor": "green"
+        }
+    ],
+    "categories": [
+        {
+            "id": "CAT-1",
+            "name": "Footwear",
+            "revenue": "$145.2k",
+            "trend": "↑ 8%",
+            "trendColor": "green"
+        },
+        {
+            "id": "CAT-2",
+            "name": "Apparel",
+            "revenue": "$98.5k",
+            "trend": "↑ 2%",
+            "trendColor": "green"
+        },
+        {
+            "id": "CAT-3",
+            "name": "Accessories",
+            "revenue": "$32.4k",
+            "trend": "↑ 15%",
+            "trendColor": "green"
+        },
+        {
+            "id": "CAT-4",
+            "name": "Equipment",
+            "revenue": "$12.8k",
+            "trend": "↓ 5%",
+            "trendColor": "red"
+        }
+    ]
+}

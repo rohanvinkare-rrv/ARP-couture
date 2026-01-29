@@ -1,0 +1,26 @@
+{
+    "currentStore": {
+        "store": {
+            "name": "Store #052 (My Store)",
+            "value": "$1.24M",
+            "performance": "114% of Target",
+            "insight": "Outperforming market by 22%. Opportunity in 'Accessories' vs. Store #401."
+        },
+        "district": {
+            "name": "District Average",
+            "value": "$980k"
+        }
+    },
+    "districtView": {
+        "store": {
+            "name": "District Top Performer",
+            "value": "$1.45M",
+            "performance": "135% of Target",
+            "insight": "Store #012 is leading with 'Winter Campaign' initiatives."
+        },
+        "district": {
+            "name": "My Store (#052)",
+            "value": "$1.24M"
+        }
+    }
+}

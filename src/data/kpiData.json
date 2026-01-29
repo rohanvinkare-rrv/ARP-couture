@@ -1,0 +1,26 @@
+[
+    {
+        "label": "Net Revenue",
+        "value": "$1.24M",
+        "change": "+4.2%",
+        "trend": "up"
+    },
+    {
+        "label": "Gross Margin",
+        "value": "42.1%",
+        "change": "-1.1%",
+        "trend": "down"
+    },
+    {
+        "label": "Inv. Turnover",
+        "value": "5.6x",
+        "change": "Nominal",
+        "trend": "neutral"
+    },
+    {
+        "label": "Order Fill Rate",
+        "value": "98.4%",
+        "change": "+0.8%",
+        "trend": "up"
+    }
+]

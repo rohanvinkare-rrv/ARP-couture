@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Denim Jacket Stockout",
+        "subtitle": "SKU-992 • HIGH PRIORITY",
+        "badge": "URGENT",
+        "badgeColor": "electric-red",
+        "message": "Velocity spike +30%. Estimated stockout: 2 days. Projected loss: $1,200.",
+        "action": "Approve 50 Unit Transfer",
+        "buttonStyle": "primary"
+    },
+    {
+        "id": 2,
+        "title": "Markdown Advisory",
+        "subtitle": "Season-X Summer Tees",
+        "badge": "PLANNING",
+        "badgeColor": "deep-orange",
+        "message": "Days on Hand: 145. Conversions -15%. Move inventory to clear floor space.",
+        "action": "Apply 20% Discount",
+        "buttonStyle": "outline"
+    },
+    {
+        "id": 3,
+        "title": "Visual Merchandising",
+        "subtitle": "Storefront • Cold Front Trigger",
+        "badge": "STRATEGIC",
+        "badgeColor": "lime-green",
+        "message": "Upcoming cold front. Move Winter Coats to primary displays for projected +35% uplift.",
+        "action": "Assign to Floor Team",
+        "buttonStyle": "outline"
+    }
+]

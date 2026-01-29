@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Executive Command Center | ARP Strategic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "charcoal-base": "#050505",
+                        "slate-panel": "#0f0f12",
+                        "slate-card": "#16161a",
+                        "border-muted": "#222226",
+                        "electric-red": "#ff3b30",
+                        "lime-green": "#32d74b",
+                        "deep-orange": "#ff9f0a",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-charcoal-base text-zinc-300 font-sans antialiased overflow-hidden h-screen;
+            }
+        }
+        .sidebar-item {
+            @apply flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-500 hover:text-white hover:bg-white/5 transition-all cursor-pointer;
+        }
+        .sidebar-item.active {
+            @apply text-white bg-white/10;
+        }
+        .glass-card {
+            @apply bg-slate-card border border-border-muted rounded-md relative overflow-hidden;
+            background-image: radial-gradient(circle at 0% 0%, rgba(255,255,255,0.03) 0%, transparent 50%);
+        }
+        .tab-btn {
+            @apply px-3 py-1 text-[10px] font-bold uppercase tracking-wider border-b-2 border-transparent text-zinc-500 hover:text-zinc-300 transition-all;
+        }
+        .tab-btn.active {
+            @apply border-white text-white;
+        }
+        .kpi-pill {
+            @apply flex flex-col px-4 py-2 border-r border-white/5 last:border-0;
+        }
+        .data-grid {
+            @apply grid grid-cols-12 gap-1 h-full;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        .compact-table tr { @apply border-b border-white/5; }
+        .compact-table td { @apply py-2 px-3; }
+    </style>
+</head>
+<body class="flex">
+<aside class="w-64 border-r border-white/10 flex flex-col h-screen shrink-0 bg-slate-panel">
+<div class="p-6 border-b border-white/5">
+<div class="flex items-center gap-2">
+<div class="size-8 bg-white text-black flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-sm font-bold">query_stats</span>
+</div>
+<h1 class="text-sm font-extrabold uppercase tracking-tight text-white">ARP Command</h1>
+</div>
+</div>
+<nav class="flex-1 p-4 space-y-1">
+<div class="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em] mb-4 px-3">Main Operations</div>
+<div class="sidebar-item active">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span class="text-xs font-medium">Global Pulse</span>
+</div>
+<div class="sidebar-item">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+<span class="text-xs font-medium">Inventory Velocity</span>
+</div>
+<div class="sidebar-item">
+<span class="material-symbols-outlined text-lg">payments</span>
+<span class="text-xs font-medium">Margin Control</span>
+</div>
+<div class="sidebar-item">
+<span class="material-symbols-outlined text-lg">groups</span>
+<span class="text-xs font-medium">Regional Benchmarks</span>
+</div>
+<div class="pt-8 text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em] mb-4 px-3">Intelligence</div>
+<div class="sidebar-item">
+<span class="material-symbols-outlined text-lg text-deep-orange">emergency</span>
+<span class="text-xs font-medium">Critical Alerts</span>
+<span class="ml-auto bg-electric-red text-[10px] px-1.5 rounded-full text-white">3</span>
+</div>
+<div class="sidebar-item">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+<span class="text-xs font-medium">Predictive Actions</span>
+</div>
+</nav>
+<div class="p-4 border-t border-white/5 bg-black/20">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-center bg-cover grayscale" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDs64vDFbRDICO6BZyrCdlvv45vTxB3pAsAQo0Z7S2eiG9Pvtkx_exzTGN4E7Uw3bYZZt5-Jf6UpxSnklYwnQ5bvRYW1nMAm9SqjHnXz2bzRx5I0xFdNl7q8Zz1R12WlPtZzb2W4vlPE0bJlX9R6Y9hWxD33cTkyYebs6EMY0KCQ_kpU5mmc2S2a462LFBdSisAmLX4zc_Uw-vPvHl4QAjFdRNw_ucehGBXO8dvw4xM_UqObaZrbA4suozfZ9BxdHWpMFEtL6dLuNeJ");'></div>
+<div class="flex-1">
+<div class="text-[10px] font-bold text-white leading-none">Alex Sterling</div>
+<div class="text-[9px] text-zinc-500 uppercase tracking-tighter">District Executive</div>
+</div>
+<span class="material-symbols-outlined text-zinc-600 text-lg">settings</span>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-screen overflow-hidden">
+<header class="sticky top-0 z-40 bg-charcoal-base/80 backdrop-blur-md border-b border-white/10 flex items-center justify-between px-6 h-20 shrink-0">
+<div class="flex items-center h-full">
+<div class="kpi-pill">
+<span class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Net Revenue</span>
+<div class="flex items-baseline gap-2">
+<span class="text-xl font-mono font-bold text-white">$1.24M</span>
+<span class="text-[10px] text-lime-green font-bold">+4.2%</span>
+</div>
+</div>
+<div class="kpi-pill">
+<span class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Gross Margin</span>
+<div class="flex items-baseline gap-2">
+<span class="text-xl font-mono font-bold text-white">42.1%</span>
+<span class="text-[10px] text-electric-red font-bold">-1.1%</span>
+</div>
+</div>
+<div class="kpi-pill">
+<span class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Inv. Turnover</span>
+<div class="flex items-baseline gap-2">
+<span class="text-xl font-mono font-bold text-white">5.6x</span>
+<span class="text-[10px] text-zinc-500">Nominal</span>
+</div>
+</div>
+<div class="kpi-pill">
+<span class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Order Fill Rate</span>
+<div class="flex items-baseline gap-2">
+<span class="text-xl font-mono font-bold text-white">98.4%</span>
+<span class="text-[10px] text-lime-green font-bold">+0.8%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col text-right">
+<span class="text-[10px] font-bold text-lime-green uppercase">Live Status: Stable</span>
+<span class="text-[9px] text-zinc-600">Last Synced: 08:42:11</span>
+</div>
+<button class="bg-white text-black text-[10px] font-bold px-4 py-2 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span> EXPORT REPORT
+            </button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<div class="grid grid-cols-12 gap-4">
+<div class="col-span-8 space-y-4">
+<div class="glass-card p-6 bg-gradient-to-br from-slate-card to-charcoal-base">
+<div class="flex justify-between items-start mb-4">
+<div class="space-y-1">
+<h2 class="text-sm font-bold text-white flex items-center gap-2">
+<span class="size-2 rounded-full bg-lime-green"></span>
+                                STRATEGIC OVERVIEW: MORNING CYCLE
+                            </h2>
+<p class="text-[11px] text-zinc-400 max-w-xl"> Revenue pacing exceeds targets. High friction detected in <span class="text-white font-semibold">Technical Footwear</span> due to logistic delays. Regional demand is shifting toward accessories.</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6 pt-4 border-t border-white/5">
+<div class="space-y-1">
+<span class="text-[10px] font-bold text-zinc-600">PRIMARY DRIVER</span>
+<p class="text-xs font-semibold text-white">Technical Gear Peak</p>
+<div class="h-1 w-full bg-white/5 rounded-full mt-2">
+<div class="h-full bg-lime-green w-4/5"></div>
+</div>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] font-bold text-zinc-600">RISK FACTOR</span>
+<p class="text-xs font-semibold text-white">Stockout Sensitivity</p>
+<div class="h-1 w-full bg-white/5 rounded-full mt-2">
+<div class="h-full bg-electric-red w-1/2"></div>
+</div>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] font-bold text-zinc-600">RECOMMENDED FOCUS</span>
+<p class="text-xs font-semibold text-white">Regional Transfers</p>
+<div class="h-1 w-full bg-white/5 rounded-full mt-2">
+<div class="h-full bg-deep-orange w-3/4"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-card h-64 flex flex-col">
+<div class="p-3 border-b border-white/5 flex justify-between items-center shrink-0">
+<span class="text-[10px] font-bold text-zinc-400">PRODUCT VELOCITY MATRIX</span>
+<div class="flex gap-2">
+<button class="tab-btn active">Top Items</button>
+<button class="tab-btn">Categories</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto">
+<table class="w-full text-[11px] compact-table">
+<thead class="bg-black/20 text-zinc-500 uppercase text-[9px]">
+<tr>
+<td class="font-bold">ID</td>
+<td class="font-bold">Product Name</td>
+<td class="font-bold text-right">Revenue</td>
+<td class="font-bold text-right">Trend</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="font-mono text-zinc-500">9921</td>
+<td class="text-white font-medium">Running Shoe V2</td>
+<td class="text-right font-mono">$42.5k</td>
+<td class="text-right text-lime-green">↑ 12%</td>
+</tr>
+<tr>
+<td class="font-mono text-zinc-500">1029</td>
+<td class="text-white font-medium">Training Tee Pro</td>
+<td class="text-right font-mono">$28.1k</td>
+<td class="text-right text-lime-green">↑ 4%</td>
+</tr>
+<tr>
+<td class="font-mono text-zinc-500">5542</td>
+<td class="text-white font-medium">Compression Sock</td>
+<td class="text-right font-mono">$12.4k</td>
+<td class="text-right text-electric-red">↓ 3%</td>
+</tr>
+<tr>
+<td class="font-mono text-zinc-500">8821</td>
+<td class="text-white font-medium">Water Bottle 1L</td>
+<td class="text-right font-mono">$8.2k</td>
+<td class="text-right text-zinc-500">--</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="glass-card h-64 flex flex-col">
+<div class="p-3 border-b border-white/5 flex justify-between items-center shrink-0">
+<span class="text-[10px] font-bold text-zinc-400">REGIONAL BENCHMARKS</span>
+<button class="tab-btn active">Current Store</button>
+</div>
+<div class="p-4 space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between items-end text-xs font-bold text-white">
+<span>Store #052 (My Store)</span>
+<span class="font-mono">$1.24M</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-white w-3/4"></div>
+</div>
+<p class="text-[9px] text-lime-green font-bold uppercase tracking-widest">Performance: 114% of Target</p>
+</div>
+<div class="space-y-2 opacity-50">
+<div class="flex justify-between items-end text-xs font-bold text-zinc-400">
+<span>District Average</span>
+<span class="font-mono">$980k</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-zinc-600 w-1/2"></div>
+</div>
+</div>
+<div class="p-3 rounded bg-lime-green/5 border border-lime-green/20 text-[10px] italic text-zinc-400 leading-relaxed">
+                                "Outperforming market by <span class="text-white font-bold">22%</span>. Opportunity in 'Accessories' vs. Store #401."
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-4">
+<div class="glass-card border-electric-red/30 flex-1 flex flex-col">
+<div class="p-3 bg-electric-red/10 border-b border-electric-red/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-electric-red text-sm font-bold">priority_high</span>
+<span class="text-[10px] font-bold text-electric-red uppercase tracking-wider">CRITICAL ALERTS (3)</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<div class="border-b border-white/5 pb-4 last:border-0 last:pb-0">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-xs font-bold text-white uppercase">Denim Jacket Stockout</h3>
+<p class="text-[10px] font-mono text-zinc-500">SKU-992 • HIGH PRIORITY</p>
+</div>
+<span class="bg-electric-red/10 text-electric-red text-[8px] font-black px-1.5 py-0.5 rounded">URGENT</span>
+</div>
+<p class="text-[11px] text-zinc-400 leading-snug mb-3">Velocity spike +30%. Estimated stockout: <span class="text-white font-bold">2 days</span>. Projected loss: <span class="font-mono text-white">$1,200</span>.</p>
+<button class="w-full py-2 bg-white text-black text-[9px] font-bold uppercase rounded tracking-widest hover:bg-zinc-200 transition-colors">
+                                Approve 50 Unit Transfer
+                            </button>
+</div>
+<div class="border-b border-white/5 pb-4 last:border-0 last:pb-0">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-xs font-bold text-white uppercase">Markdown Advisory</h3>
+<p class="text-[10px] font-mono text-zinc-500">Season-X Summer Tees</p>
+</div>
+<span class="bg-deep-orange/10 text-deep-orange text-[8px] font-black px-1.5 py-0.5 rounded">PLANNING</span>
+</div>
+<p class="text-[11px] text-zinc-400 leading-snug mb-3">Days on Hand: <span class="text-white font-bold">145</span>. Conversions -15%. Move inventory to clear floor space.</p>
+<button class="w-full py-2 border border-white/20 text-white text-[9px] font-bold uppercase rounded tracking-widest hover:bg-white/5 transition-colors">
+                                Apply 20% Discount
+                            </button>
+</div>
+<div class="border-b border-white/5 pb-4 last:border-0 last:pb-0">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-xs font-bold text-white uppercase">Visual Merchandising</h3>
+<p class="text-[10px] font-mono text-zinc-500">Storefront • Cold Front Trigger</p>
+</div>
+<span class="bg-lime-green/10 text-lime-green text-[8px] font-black px-1.5 py-0.5 rounded">STRATEGIC</span>
+</div>
+<p class="text-[11px] text-zinc-400 leading-snug mb-3">Upcoming cold front. Move Winter Coats to primary displays for projected <span class="text-white font-bold">+35% uplift</span>.</p>
+<button class="w-full py-2 border border-white/20 text-white text-[9px] font-bold uppercase rounded tracking-widest hover:bg-white/5 transition-colors">
+                                Assign to Floor Team
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="glass-card p-4 space-y-4">
+<span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Traffic Analytics</span>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-600">person</span>
+<div class="flex-1">
+<div class="flex justify-between text-[10px] text-zinc-400 mb-1">
+<span>Store Footfall</span>
+<span class="text-white font-mono">1.2k</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-zinc-400 w-3/4"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-600">shopping_cart</span>
+<div class="flex-1">
+<div class="flex justify-between text-[10px] text-zinc-400 mb-1">
+<span>Conversion Rate</span>
+<span class="text-white font-mono">3.8%</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-lime-green w-1/3"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-card p-4 flex flex-col justify-between">
+<span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Inventory Health</span>
+<div class="flex items-end justify-between">
+<div>
+<div class="text-2xl font-mono font-bold text-white">92%</div>
+<div class="text-[9px] text-zinc-500 uppercase">Optimal Levels</div>
+</div>
+<div class="size-12 rounded-full border-4 border-white/5 border-t-lime-green"></div>
+</div>
+</div>
+<div class="glass-card p-4 flex flex-col justify-between">
+<span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Regional Rank</span>
+<div class="flex items-end justify-between">
+<div>
+<div class="text-2xl font-mono font-bold text-white">#04</div>
+<div class="text-[9px] text-zinc-500 uppercase">Top 10 District</div>
+</div>
+<div class="size-10 bg-white/5 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white">leaderboard</span>
+</div>
+</div>
+</div>
+<div class="glass-card p-4 bg-gradient-to-br from-zinc-800/20 to-transparent">
+<div class="flex flex-col h-full justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-zinc-500">info</span>
+<span class="text-[10px] font-bold text-zinc-500 uppercase">System Insights</span>
+</div>
+<p class="text-[10px] text-zinc-300 leading-tight">Implementing all 3 pending alerts can protect <span class="text-white font-bold">$4,800</span> in weekly margin.</p>
+<div class="flex gap-2">
+<div class="size-1.5 rounded-full bg-white/20"></div>
+<div class="size-1.5 rounded-full bg-white/20"></div>
+<div class="size-1.5 rounded-full bg-white"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="h-8 border-t border-white/5 bg-black/40 flex items-center justify-between px-6 shrink-0">
+<div class="text-[9px] text-zinc-600 font-bold uppercase tracking-widest">ARP Command Center v2.4.1</div>
+<div class="flex gap-4 text-[9px] text-zinc-600">
+<a class="hover:text-white" href="#">System Logs</a>
+<a class="hover:text-white" href="#">API Health</a>
+<a class="hover:text-white" href="#">Support</a>
+</div>
+</footer>
+</main>
+
+</body></html>
