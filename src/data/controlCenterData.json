@@ -1,0 +1,157 @@
+{
+    "healthMatrix": {
+        "score": {
+            "value": "88/100",
+            "label": "Health Score",
+            "trend": "+3pts",
+            "status": "Excellent"
+        },
+        "metrics": {
+            "stockouts": {
+                "value": "12",
+                "label": "Critical Stockouts",
+                "trend": "-5"
+            },
+            "overstockVal": {
+                "value": "₹4.5L",
+                "label": "Overstock Value",
+                "trend": "-8%"
+            },
+            "turnover": {
+                "value": "4.2x",
+                "label": "Annual Turns",
+                "trend": "+0.1"
+            }
+        },
+        "columns": [
+            "Category",
+            "H",
+            "L",
+            "O"
+        ],
+        "rows": [
+            {
+                "category": "Footwear",
+                "healthy": 45,
+                "low": 12,
+                "overstock": 8,
+                "total": 65,
+                "risk": "low"
+            },
+            {
+                "category": "Apparel",
+                "healthy": 120,
+                "low": 5,
+                "overstock": 42,
+                "total": 167,
+                "risk": "high"
+            },
+            {
+                "category": "Accessories",
+                "healthy": 80,
+                "low": 25,
+                "overstock": 2,
+                "total": 107,
+                "risk": "med"
+            },
+            {
+                "category": "Equipment",
+                "healthy": 15,
+                "low": 2,
+                "overstock": 0,
+                "total": 17,
+                "risk": "none"
+            }
+        ],
+        "alert": {
+            "type": "error",
+            "message": "Action Required: High overstock value in Apparel category."
+        }
+    },
+    "staffProductivity": {
+        "splh": {
+            "value": "₹4,250",
+            "trend": "up",
+            "percent": "8%",
+            "label": "Strong Performance"
+        },
+        "metrics": {
+            "conversion": {
+                "value": "24.5%",
+                "label": "Conversion Rate",
+                "trend": "+2.1%"
+            },
+            "upt": {
+                "value": "1.8",
+                "label": "Units Per Transaction",
+                "trend": "-0.1"
+            },
+            "activeStaff": {
+                "value": "8/12",
+                "label": "Active Staff"
+            }
+        },
+        "shifts": [
+            {
+                "name": "Morning Shift",
+                "staffCount": 5,
+                "current": 5100,
+                "target": 4500,
+                "color": "bg-lime-green",
+                "status": "Exceeding"
+            },
+            {
+                "name": "Evening Shift",
+                "staffCount": 3,
+                "current": 3800,
+                "target": 4500,
+                "color": "bg-deep-orange",
+                "status": "Lagging"
+            }
+        ]
+    },
+    "dockOperations": {
+        "otif": {
+            "value": "92%",
+            "label": "On-Time In-Full",
+            "trend": "+4%",
+            "status": "Healthy"
+        },
+        "metrics": {
+            "pendingUnits": {
+                "value": "1,250",
+                "label": "Pending Units"
+            },
+            "activeDoors": {
+                "value": "2/4",
+                "label": "Active Doors"
+            },
+            "nextTruck": {
+                "value": "15m",
+                "label": "Next Truck"
+            }
+        },
+        "timeline": [
+            {
+                "time": "2:00 PM",
+                "title": "Nike Restock",
+                "carrier": "FedEx",
+                "dockDoor": "Dock 2",
+                "details": "45 Cartons • 450 Units",
+                "status": "On Time",
+                "statusColor": "bg-lime-green",
+                "progress": 65
+            },
+            {
+                "time": "4:30 PM",
+                "title": "Regional Transfer",
+                "carrier": "Internal",
+                "dockDoor": "Dock 1",
+                "details": "125 Units • Mixed SKUs",
+                "status": "Delayed",
+                "statusColor": "bg-deep-orange",
+                "progress": 0
+            }
+        ]
+    }
+}

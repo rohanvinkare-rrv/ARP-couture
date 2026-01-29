@@ -117,7 +117,7 @@ const Sidebar = () => {
                     ></div>
                     {!isCollapsed && (
                         <div className="flex flex-col overflow-hidden">
-                            <span className="text-xs font-bold text-text-primary whitespace-nowrap">Alex Chen</span>
+                            <span className="text-xs font-bold text-text-primary whitespace-nowrap">Rohan Vinkare</span>
                             <span className="text-[10px] text-text-secondary whitespace-nowrap">Store Manager</span>
                         </div>
                     )}

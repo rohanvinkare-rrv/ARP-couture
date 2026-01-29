@@ -10,7 +10,7 @@ const Header = () => {
     const { logout } = useAuth();
 
     return (
-        <header className="sticky top-0 z-40 bg-bg-app/80 backdrop-blur-md border-b border-border-base flex items-center justify-between px-6 h-20 shrink-0 transition-colors duration-300">
+        <header className="sticky top-0 z-40 bg-bg-panel/80 backdrop-blur-md border-b border-border-base flex items-center justify-between px-6 h-20 shrink-0 transition-colors duration-300">
             <div className="flex items-center h-full">
                 {kpiData.map((kpi, index) => (
                     <KPIPill key={index} {...kpi} />

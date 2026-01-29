@@ -27,15 +27,66 @@
             }
         ],
         "metrics": {
-            "str": "68%", 
+            "str": "68%",
             "wos": "5.2 Wks"
         }
     },
     "rank": {
-        "position": "#04",
-        "context": "Top 10 District"
+        "current": {
+            "position": "#04",
+            "tier": "Top 10",
+            "trend": "▲ 1"
+        },
+        "metrics": {
+            "gap": "1.2% to #3",
+            "movement": "Upward"
+        },
+        "standings": [
+            {
+                "rank": "#03",
+                "store": "Store 012",
+                "score": "94.2%",
+                "isMe": false
+            },
+            {
+                "rank": "#04",
+                "store": "My Store",
+                "score": "92.8%",
+                "isMe": true
+            },
+            {
+                "rank": "#05",
+                "store": "Store 088",
+                "score": "89.5%",
+                "isMe": false
+            }
+        ]
     },
     "system": {
-        "insight": "Implementing all 3 pending alerts can protect $4,800 in weekly margin."
+        "pulse": {
+            "hero": {
+                "label": "Return Rate",
+                "value": "8.2%",
+                "trend": "+1.2%",
+                "status": "High Risk"
+            },
+            "metrics": [
+                {
+                    "label": "Phantom Stock",
+                    "value": "142 Units",
+                    "trend": "Detected"
+                },
+                {
+                    "label": "Shrinkage",
+                    "value": "1.1%",
+                    "trend": "-0.2%"
+                },
+                {
+                    "label": "Damaged",
+                    "value": "45 Items",
+                    "trend": "+5"
+                }
+            ]
+        }
     }
 }

@@ -24,7 +24,7 @@
 
   /* Semantic Tokens */
   /* Backgrounds */
-  --color-bg-app: var(--color-zinc-50);
+  --color-bg-app: var(--color-zinc-100);
   --color-bg-panel: #ffffff;
   --color-bg-card: #ffffff;
   --color-bg-hover: var(--color-zinc-100);
@@ -189,8 +189,10 @@
 }
 
 /* Custom Scrollbar */
+/* Custom Scrollbar - Gaming Control Center Style */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -198,7 +200,18 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  /* Could make this semantic too --color-scroll-thumb */
-  border-radius: 10px;
+  background: var(--color-zinc-600);
+  border-radius: 99px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-zinc-400);
+}
+
+/* Firefox support */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-zinc-600) transparent;
+  scroll-behavior: smooth;
 }
