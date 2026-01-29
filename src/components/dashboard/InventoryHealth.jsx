@@ -24,14 +24,15 @@ const InventoryHealth = () => {
                     <span className="text-2xl font-mono font-bold text-text-primary mt-1">{analyticsData.inventory.health}</span>
                 </div>
                 {/* Secondary Metrics Mini-Grid */}
-                <div className="flex gap-4 text-right">
-                    <div className="flex flex-col">
-                        <span className="text-[9px] text-text-secondary uppercase">Sell-Thru %</span>
-                        <span className="text-xs font-mono font-bold text-text-primary">{analyticsData.inventory.metrics?.str || '--'}</span>
+                {/* Secondary Metrics Mini-Grid */}
+                <div className="flex gap-6 text-right">
+                    <div className="flex flex-col items-end">
+                        <span className="text-[9px] text-text-secondary uppercase font-semibold tracking-wider mb-0.5">Sell-Through Rate</span>
+                        <span className="text-sm font-mono font-bold text-text-primary">{analyticsData.inventory.metrics?.str || '--'}</span>
                     </div>
-                    <div className="flex flex-col">
-                        <span className="text-[9px] text-text-secondary uppercase">Wk Supply</span>
-                        <span className="text-xs font-mono font-bold text-text-primary">{analyticsData.inventory.metrics?.wos || '--'}</span>
+                    <div className="flex flex-col items-end">
+                        <span className="text-[9px] text-text-secondary uppercase font-semibold tracking-wider mb-0.5">Weeks of Supply</span>
+                        <span className="text-sm font-mono font-bold text-text-primary">{analyticsData.inventory.metrics?.wos || '--'}</span>
                     </div>
                 </div>
             </div>

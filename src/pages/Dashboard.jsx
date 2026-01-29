@@ -7,6 +7,9 @@ import TrafficAnalytics from '../components/dashboard/TrafficAnalytics';
 import InventoryHealth from '../components/dashboard/InventoryHealth';
 import RegionalRank from '../components/dashboard/RegionalRank';
 import SystemInsights from '../components/dashboard/SystemInsights';
+import HealthMatrix from '../components/dashboard/HealthMatrix';
+import StaffProductivity from '../components/dashboard/StaffProductivity';
+import InboundLogistics from '../components/dashboard/InboundLogistics';
 
 const Dashboard = () => {
     return (
@@ -28,6 +31,13 @@ const Dashboard = () => {
                 <InventoryHealth />
                 <RegionalRank />
                 <SystemInsights />
+            </div>
+
+            {/* Extended Command Center Row */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <HealthMatrix />
+                <StaffProductivity />
+                <InboundLogistics />
             </div>
         </div>
     );

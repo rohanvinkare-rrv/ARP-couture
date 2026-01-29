@@ -1,31 +1,56 @@
 import React from 'react';
 import GlassCard from '../common/GlassCard';
-import { MdInfo, MdAutoAwesome } from 'react-icons/md';
+import { MdInsights, MdAssignmentReturn } from 'react-icons/md';
 import analyticsData from '../../data/analyticsData.json';
 
 const SystemInsights = () => {
+    const { hero, metrics } = analyticsData.system.pulse;
+
     return (
-        <GlassCard className="p-4 flex flex-col justify-between h-40 bg-bg-card transition-colors duration-300">
-            <div className="flex justify-between items-start z-10 relative">
-                <div className="flex gap-2 items-center">
-                    <MdInfo className="text-xs text-text-secondary" />
-                    <span className="text-[10px] font-bold text-text-secondary uppercase">System Insights</span>
-                </div>
-                <div className="flex gap-1">
-                    <div className="size-1.5 rounded-full bg-bg-subtle"></div>
-                    <div className="size-1.5 rounded-full bg-bg-subtle"></div>
-                    <div className="size-1.5 rounded-full bg-text-primary"></div>
+        <GlassCard className="p-3 flex flex-col h-full bg-bg-card transition-colors duration-300 relative overflow-hidden">
+            {/* Header */}
+            <div className="flex justify-between items-start mb-2 z-10">
+                <div className="flex gap-1.5 items-center">
+                    <MdInsights className="text-xs text-text-secondary" />
+                    <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Inventory Pulse</span>
                 </div>
             </div>
 
-            <p className="text-[10px] text-text-secondary leading-tight z-10 relative pr-4">
-                Implementing all 3 pending alerts can protect <span className="text-text-primary font-bold">$4,800</span> in weekly margin.
-                <br /><br />
-                <span className="underline decoration-text-tertiary cursor-pointer hover:text-text-primary transition-colors">Review Impact Analysis &rarr;</span>
+            {/* Hero Metric: Return Rate */}
+            <div className="flex items-center justify-between mb-3 z-10">
+                <div className="flex flex-col">
+                    <div className="flex items-baseline gap-2">
+                        <span className="text-3xl font-black text-text-primary tracking-tighter">{hero.value}</span>
+                        <span className="text-[10px] font-bold text-electric-red bg-electric-red/10 px-1.5 py-0.5 rounded">
+                            {hero.trend}
+                        </span>
+                    </div>
+                    <span className="text-[10px] font-medium text-text-secondary mt-0.5 flex items-center gap-1">
+                        <MdAssignmentReturn className="text-xs" /> {hero.label}
+                    </span>
+                </div>
+                <div className="text-right">
+                    <div className="text-[9px] font-bold text-electric-red bg-bg-subtle px-2 py-1 rounded border border-electric-red/20 shadow-sm">
+                        {hero.status}
+                    </div>
+                </div>
+            </div>
 
-            </p>
+            {/* Secondary Metrics Grid */}
+            <div className="grid grid-cols-3 gap-2 mt-auto z-10">
+                {metrics.map((metric, index) => (
+                    <div key={index} className="bg-bg-subtle rounded p-1.5 flex flex-col border border-border-subtle hover:bg-bg-hover transition-colors">
+                        <span className="text-[8px] text-text-secondary uppercase truncate">{metric.label}</span>
+                        <div className="flex flex-col mt-0.5">
+                            <span className="text-xs font-bold text-text-primary leading-tight">{metric.value}</span>
+                            <span className="text-[8px] font-bold text-text-tertiary">{metric.trend}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
 
-            <MdAutoAwesome className="absolute -bottom-4 -right-4 text-8xl text-bg-hover rotate-12 group-hover:rotate-0 transition-transform duration-500" />
+            {/* Subtle decorative flush */}
+            <div className="absolute -top-10 -right-10 size-24 bg-electric-red/5 rounded-full blur-2xl pointer-events-none"></div>
         </GlassCard>
     );
 };
