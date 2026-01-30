@@ -1,29 +1,25 @@
-import React, { useState } from 'react';
-import {
-    MdDashboard,
-    MdInventory2,
-    MdPayments,
-    MdGroups,
-    MdEmergency,
-    MdAutoAwesome,
-} from 'react-icons/md';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { APP_NAVIGATION } from '../../data/navigation';
 import clsx from 'clsx';
 
 const Sidebar = () => {
-    const [activeItem, setActiveItem] = useState('Global Pulse');
+    const navigate = useNavigate();
+    const location = useLocation();
     const [isCollapsed, setIsCollapsed] = useState(false);
 
-    const navItems = {
-        main: [
-            { label: 'Global Pulse', icon: MdDashboard },
-            { label: 'Inventory Velocity', icon: MdInventory2 },
-            { label: 'Margin Control', icon: MdPayments },
-            { label: 'Regional Benchmarks', icon: MdGroups },
-        ],
-        analytics: [
-            { label: 'Critical Alerts', icon: MdEmergency, badge: 3, badgeColor: 'bg-electric-red' },
-            { label: 'Predictive Actions', icon: MdAutoAwesome },
-        ],
+    const navItems = APP_NAVIGATION;
+
+    const handleNavigation = (path) => {
+        if (path !== '#') {
+            navigate(path);
+        }
+    };
+
+    const isActive = (path) => {
+        if (path === '/' && location.pathname === '/') return true;
+        if (path !== '/' && location.pathname.startsWith(path)) return true;
+        return false;
     };
 
     return (
@@ -67,11 +63,11 @@ const Sidebar = () => {
                     <div
                         key={item.label}
                         className={clsx(
-                            "sidebar-item transition-all duration-200",
-                            activeItem === item.label && 'active',
+                            "sidebar-item transition-all duration-200 cursor-pointer",
+                            isActive(item.path) && 'active',
                             isCollapsed ? "justify-center px-0 py-3" : "px-3 py-2"
                         )}
-                        onClick={() => setActiveItem(item.label)}
+                        onClick={() => handleNavigation(item.path)}
                         title={isCollapsed ? item.label : undefined}
                     >
                         <item.icon className="text-lg shrink-0" />
@@ -86,11 +82,11 @@ const Sidebar = () => {
                     <div
                         key={item.label}
                         className={clsx(
-                            "sidebar-item transition-all duration-200",
-                            activeItem === item.label && 'active',
+                            "sidebar-item transition-all duration-200 cursor-pointer",
+                            isActive(item.path) && 'active',
                             isCollapsed ? "justify-center px-0 py-3 relative" : "px-3 py-2"
                         )}
-                        onClick={() => setActiveItem(item.label)}
+                        onClick={() => handleNavigation(item.path)}
                         title={isCollapsed ? item.label : undefined}
                     >
                         <item.icon className="text-lg shrink-0" />

@@ -4,11 +4,11 @@ import { MdLeaderboard, MdTrendingUp } from 'react-icons/md';
 import analyticsData from '../../data/analyticsData.json';
 import clsx from 'clsx';
 
-const RegionalRank = () => {
+const RegionalRank = ({ className }) => {
     const { current, metrics, standings } = analyticsData.rank;
 
     return (
-        <GlassCard className="p-3 flex flex-col justify-between h-full bg-bg-card transition-colors duration-300">
+        <GlassCard className={clsx("p-5 flex flex-col gap-4 h-full bg-bg-card transition-colors duration-300", className)}>
             {/* Header */}
             <div className="flex justify-between items-start">
                 <div className="flex gap-1.5 items-center">
@@ -21,12 +21,12 @@ const RegionalRank = () => {
             </div>
 
             {/* List */}
-            <div className="flex flex-col gap-1.5 mt-2">
+            <div className="flex flex-col gap-2 mt-2">
                 {standings.map((item, index) => (
                     <div
                         key={index}
                         className={clsx(
-                            "flex justify-between items-center px-2 py-1.5 rounded border transition-all",
+                            "flex justify-between items-center px-3 py-2 rounded border transition-all",
                             item.isMe
                                 ? "bg-bg-primary/5 border-bg-primary/10 shadow-sm translate-x-1"
                                 : "bg-transparent border-transparent opacity-60"
@@ -48,7 +48,7 @@ const RegionalRank = () => {
             </div>
 
             {/* Footer / Motivation */}
-            <div className="mt-auto pt-2 flex items-center justify-between border-t border-border-subtle/50">
+            <div className="mt-auto pt-4 flex items-center justify-between border-t border-border-subtle/50">
                 <div className="flex items-center gap-1 text-lime-green">
                     <MdTrendingUp className="text-xs" />
                     <span className="text-[9px] font-bold">{metrics.gap}</span>

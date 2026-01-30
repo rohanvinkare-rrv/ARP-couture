@@ -4,12 +4,12 @@ import { MdRefresh, MdGroups } from 'react-icons/md';
 import controlCenterData from '../../data/controlCenterData.json';
 import clsx from 'clsx';
 
-const StaffProductivity = () => {
+const StaffProductivity = ({ className }) => {
     const { splh, metrics, shifts } = controlCenterData.staffProductivity;
 
     return (
-        <GlassCard className="p-4 flex flex-col h-full bg-bg-card transition-colors duration-300">
-            <div className="flex justify-between items-start mb-4">
+        <GlassCard className={clsx("p-5 flex flex-col h-full bg-bg-card transition-colors duration-300", className)}>
+            <div className="flex justify-between items-start mb-5">
                 <div className="flex flex-col">
                     <h3 className="text-xs font-black uppercase tracking-widest text-text-primary">Staff Productivity</h3>
                     <span className="text-[10px] text-text-tertiary mt-0.5">Efficiency & Output</span>
@@ -20,7 +20,7 @@ const StaffProductivity = () => {
             </div>
 
             {/* Hero Metric: SPLH */}
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center justify-between mb-6">
                 <div className="flex flex-col">
                     <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-black text-text-primary tracking-tighter">{splh.value}</span>
@@ -41,7 +41,7 @@ const StaffProductivity = () => {
             </div>
 
             {/* Secondary Metrics Grid */}
-            <div className="grid grid-cols-3 gap-2 mb-6">
+            <div className="grid grid-cols-3 gap-3 mb-6">
                 <div className="bg-bg-subtle rounded p-2 flex flex-col border border-border-subtle">
                     <span className="text-[9px] text-text-secondary uppercase">{metrics.conversion.label}</span>
                     <div className="flex items-end justify-between mt-1">

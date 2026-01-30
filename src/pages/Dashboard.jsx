@@ -13,20 +13,20 @@ import InboundLogistics from '../components/dashboard/InboundLogistics';
 
 const Dashboard = () => {
     return (
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-bg-app transition-colors duration-300">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-                <div className="lg:col-span-8 space-y-4">
+        <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-bg-app transition-colors duration-300">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                <div className="lg:col-span-8 space-y-5">
                     <StrategicOverview />
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <ProductVelocityMatrix />
                         <RegionalBenchmarks />
                     </div>
                 </div>
-                <div className="lg:col-span-4 flex flex-col gap-4">
+                <div className="lg:col-span-4 flex flex-col gap-5">
                     <CriticalAlerts />
                 </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <TrafficAnalytics />
                 <InventoryHealth />
                 <RegionalRank />
@@ -34,7 +34,7 @@ const Dashboard = () => {
             </div>
 
             {/* Extended Command Center Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 <HealthMatrix />
                 <StaffProductivity />
                 <InboundLogistics />
