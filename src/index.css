@@ -189,24 +189,39 @@
 }
 
 /* Custom Scrollbar */
-/* Custom Scrollbar - Gaming Control Center Style */
+/* Custom Scrollbar - Gaming/* Compact Scrollbar (Gaming-Style) */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-zinc-600);
-  border-radius: 99px;
-  transition: background 0.2s ease;
+    background: var(--color-border-base);
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-zinc-400);
+    background: var(--color-text-tertiary);
+}
+
+/* Toast Animations */
+@keyframes slide-in-right {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out;
 }
 
 /* Firefox support */

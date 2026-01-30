@@ -4,12 +4,12 @@ import { MdRefresh, MdLocalShipping, MdWarehouse } from 'react-icons/md';
 import controlCenterData from '../../data/controlCenterData.json';
 import clsx from 'clsx';
 
-const InboundLogistics = () => {
+const InboundLogistics = ({ className }) => {
     const { otif, metrics, timeline } = controlCenterData.dockOperations;
 
     return (
-        <GlassCard className="p-4 flex flex-col h-full bg-bg-card transition-colors duration-300">
-            <div className="flex justify-between items-start mb-2">
+        <GlassCard className={clsx("p-5 flex flex-col h-full bg-bg-card transition-colors duration-300", className)}>
+            <div className="flex justify-between items-start mb-4">
                 <div className="flex flex-col">
                     <h3 className="text-xs font-black uppercase tracking-widest text-text-primary">Inbound (Dock)</h3>
                     <span className="text-[10px] text-text-tertiary mt-0.5">Shipment Velocity</span>
@@ -20,7 +20,7 @@ const InboundLogistics = () => {
             </div>
 
             {/* Hero Metric: OTIF */}
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center justify-between mb-4">
                 <div className="flex flex-col">
                     <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-black text-text-primary tracking-tighter">{otif.value}</span>
@@ -40,7 +40,7 @@ const InboundLogistics = () => {
             </div>
 
             {/* Secondary Metrics Grid */}
-            <div className="grid grid-cols-3 gap-2 mb-3">
+            <div className="grid grid-cols-3 gap-3 mb-4">
                 <div className="bg-bg-subtle rounded p-1.5 flex flex-col border border-border-subtle">
                     <span className="text-[9px] text-text-secondary uppercase">{metrics.pendingUnits.label}</span>
                     <span className="text-sm font-bold text-text-primary mt-0.5">{metrics.pendingUnits.value}</span>
@@ -59,7 +59,7 @@ const InboundLogistics = () => {
                 {/* Vertical Line */}
                 <div className="absolute left-[3px] top-2 bottom-2 w-0.5 bg-border-base"></div>
 
-                <div className="space-y-2">
+                <div className="space-y-3">
                     {timeline.map((item, index) => (
                         <div key={index} className="relative pl-5">
                             {/* Dot */}

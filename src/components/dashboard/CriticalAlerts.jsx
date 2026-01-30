@@ -20,18 +20,18 @@ const CriticalAlerts = () => {
 
     return (
         <GlassCard className="flex flex-col bg-bg-card transition-colors duration-300 h-full">
-            <div className="p-3 bg-electric-red/5 border-b border-electric-red/10 flex items-center gap-2 shrink-0">
+            <div className="p-4 bg-electric-red/5 border-b border-electric-red/10 flex items-center gap-2 shrink-0">
                 <div className="size-4 rounded-full bg-electric-red/20 flex items-center justify-center">
                     <MdPriorityHigh className="text-electric-red text-[10px] font-bold" />
                 </div>
                 <span className="text-[10px] font-bold text-electric-red uppercase tracking-wider">CRITICAL ALERTS ({alertsData.length})</span>
             </div>
 
-            <div className="flex-col px-4 text-text-primary flex-1 overflow-y-auto">
-                {alertsData.map((alert, index) => (
+            <div className="flex-col px-5 text-text-primary flex-1 overflow-y-auto">
+                {(alertsData || []).map((alert, index) => (
                     <div
                         key={alert.id}
-                        className="py-3 border-b border-border-subtle last:border-0 flex flex-col gap-2 group"
+                        className="py-4 border-b border-border-subtle last:border-0 flex flex-col gap-3 group"
                     >
                         {/* Header */}
                         <div className="flex justify-between items-start">

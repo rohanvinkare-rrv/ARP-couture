@@ -11,11 +11,11 @@ const TrafficAnalytics = () => {
     const { footfall = '0', conversion = '0%' } = analyticsData.traffic;
 
     return (
-        <GlassCard className="p-4 flex flex-col h-full justify-between bg-bg-card transition-colors duration-300">
+        <GlassCard className="p-5 flex flex-col h-full justify-between bg-bg-card transition-colors duration-300">
             <span className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Traffic Analytics</span>
-            <div className="space-y-5">
+            <div className="space-y-6">
                 {/* Metric 1 */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                     <div className="size-8 rounded bg-bg-subtle flex items-center justify-center shrink-0">
                         <MdPerson className="text-text-secondary text-sm" />
                     </div>
@@ -39,7 +39,7 @@ const TrafficAnalytics = () => {
                 </div>
 
                 {/* Metric 2 */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                     <div className="size-8 rounded bg-bg-subtle flex items-center justify-center shrink-0">
                         <MdShoppingCart className="text-text-secondary text-sm" />
                     </div>

@@ -4,12 +4,12 @@ import { MdRefresh, MdHealthAndSafety, MdWarning } from 'react-icons/md';
 import controlCenterData from '../../data/controlCenterData.json';
 import clsx from 'clsx';
 
-const HealthMatrix = () => {
+const HealthMatrix = ({ className }) => {
     const { score, metrics, rows, alert } = controlCenterData.healthMatrix;
 
     return (
-        <GlassCard className="p-4 flex flex-col h-full bg-bg-card transition-colors duration-300">
-            <div className="flex justify-between items-start mb-2">
+        <GlassCard className={clsx("p-5 flex flex-col h-full bg-bg-card transition-colors duration-300", className)}>
+            <div className="flex justify-between items-start mb-4">
                 <div className="flex flex-col">
                     <h3 className="text-xs font-black uppercase tracking-widest text-text-primary">Health Matrix</h3>
                     <span className="text-[10px] text-text-tertiary mt-0.5">Inventory Quality</span>
@@ -20,7 +20,7 @@ const HealthMatrix = () => {
             </div>
 
             {/* Hero Metric: Health Score */}
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center justify-between mb-4">
                 <div className="flex flex-col">
                     <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-black text-text-primary tracking-tighter">{score.value}</span>
@@ -40,7 +40,7 @@ const HealthMatrix = () => {
             </div>
 
             {/* Secondary Metrics Grid */}
-            <div className="grid grid-cols-3 gap-2 mb-3">
+            <div className="grid grid-cols-3 gap-3 mb-4">
                 <div className="bg-bg-subtle rounded p-1.5 flex flex-col border border-border-subtle">
                     <span className="text-[9px] text-text-secondary uppercase">{metrics.stockouts.label}</span>
                     <div className="flex items-baseline justify-between mt-0.5">

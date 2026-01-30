@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import GlassCard from '../common/GlassCard';
 import TabButton from '../common/TabButton';
 import regionalData from '../../data/regionalData.json';
+import clsx from 'clsx';
 
-const RegionalBenchmarks = () => {
+const RegionalBenchmarks = ({ className }) => {
     const [activeTab, setActiveTab] = useState('Current Store');
 
     // Toggle logic simply to show interactivity, could map to different keys in future
@@ -11,8 +12,8 @@ const RegionalBenchmarks = () => {
     const data = activeTab === 'Current Store' ? regionalData.currentStore : regionalData.districtView;
 
     return (
-        <GlassCard className="h-64 flex flex-col bg-bg-card transition-colors duration-300">
-            <div className="p-3 border-b border-border-base flex justify-between items-center shrink-0">
+        <GlassCard className={clsx("flex flex-col bg-bg-card transition-colors duration-300", className)}>
+            <div className="px-4 py-3 border-b border-border-base flex justify-between items-center shrink-0">
                 <span className="text-[10px] font-bold text-text-tertiary uppercase">Regional Benchmarks</span>
                 <div className="flex gap-2">
                     <TabButton isActive={activeTab === 'Current Store'} onClick={() => setActiveTab('Current Store')}>Current Store</TabButton>
@@ -20,7 +21,7 @@ const RegionalBenchmarks = () => {
                 </div>
             </div>
 
-            <div className="p-4 space-y-4 flex-1 overflow-hidden flex flex-col justify-center">
+            <div className="p-4 flex-auto min-h-0 flex flex-col gap-3">
                 <div className="space-y-2">
                     <div className="flex justify-between items-end text-xs font-bold text-text-primary">
                         <span>{data.store.name}</span>

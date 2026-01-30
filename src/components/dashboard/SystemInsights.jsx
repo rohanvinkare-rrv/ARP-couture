@@ -7,9 +7,9 @@ const SystemInsights = () => {
     const { hero, metrics } = analyticsData.system.pulse;
 
     return (
-        <GlassCard className="p-3 flex flex-col h-full bg-bg-card transition-colors duration-300 relative overflow-hidden">
+        <GlassCard className="p-5 flex flex-col h-full bg-bg-card transition-colors duration-300 relative overflow-hidden">
             {/* Header */}
-            <div className="flex justify-between items-start mb-2 z-10">
+            <div className="flex justify-between items-start mb-4 z-10">
                 <div className="flex gap-1.5 items-center">
                     <MdInsights className="text-xs text-text-secondary" />
                     <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Inventory Pulse</span>
@@ -17,7 +17,7 @@ const SystemInsights = () => {
             </div>
 
             {/* Hero Metric: Return Rate */}
-            <div className="flex items-center justify-between mb-3 z-10">
+            <div className="flex items-center justify-between mb-5 z-10">
                 <div className="flex flex-col">
                     <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-black text-text-primary tracking-tighter">{hero.value}</span>
@@ -37,9 +37,9 @@ const SystemInsights = () => {
             </div>
 
             {/* Secondary Metrics Grid */}
-            <div className="grid grid-cols-3 gap-2 mt-auto z-10">
+            <div className="grid grid-cols-3 gap-3 mt-auto z-10">
                 {metrics.map((metric, index) => (
-                    <div key={index} className="bg-bg-subtle rounded p-1.5 flex flex-col border border-border-subtle hover:bg-bg-hover transition-colors">
+                    <div key={index} className="bg-bg-subtle rounded p-2 flex flex-col border border-border-subtle hover:bg-bg-hover transition-colors">
                         <span className="text-[8px] text-text-secondary uppercase truncate">{metric.label}</span>
                         <div className="flex flex-col mt-0.5">
                             <span className="text-xs font-bold text-text-primary leading-tight">{metric.value}</span>

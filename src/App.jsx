@@ -1,10 +1,13 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ToastProvider } from './contexts/ToastContext';
 import Sidebar from './components/layout/Sidebar';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Dashboard from './pages/Dashboard';
+import Playground from './pages/Playground';
 import Login from './pages/Login';
 
 const AppContent = () => {
@@ -27,7 +30,10 @@ const AppContent = () => {
       <Sidebar />
       <main className="flex-1 flex flex-col h-screen overflow-hidden">
         <Header />
-        <Dashboard />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/playground" element={<Playground />} />
+        </Routes>
         <Footer />
       </main>
     </div>
@@ -38,7 +44,9 @@ function App() {
   return (
     <AuthProvider>
       <ThemeProvider>
-        <AppContent />
+        <ToastProvider>
+          <AppContent />
+        </ToastProvider>
       </ThemeProvider>
     </AuthProvider>
   );
